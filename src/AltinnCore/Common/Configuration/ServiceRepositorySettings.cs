@@ -336,7 +336,7 @@ namespace AltinnCore.Common.Configuration
                 developer += "/";
             }
 
-            return $"{RepositoryLocation}/{developer}{org}/{service}/{ThirdPartyComponentsJSONFileName}";
+            return $"{RepositoryLocation}{developer}{org}/{service}/{ThirdPartyComponentsJSONFileName}";
         }
 
         /// <summary>

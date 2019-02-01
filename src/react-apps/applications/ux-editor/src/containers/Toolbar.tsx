@@ -150,19 +150,19 @@ class ToolbarClass extends React.Component<IToolbarProps, IToolbarState> {
       return [];
     }
     const thirdPartyComponentArray: IToolbarElement[] = [];
-    for (const packageName of thirdPartyComponents) {
-      for (const componentName of thirdPartyComponents[packageName]) {
+    for (const packageName in thirdPartyComponents) {
+      for (const componentName in thirdPartyComponents[packageName]) {
         const textResourceBindings: ITextResourceBindings = {};
         textResourceBindings.title = `${packageName}.${componentName}`;
         thirdPartyComponentArray.push({
           label: `${packageName} - ${componentName}`,
-          componentType: null,
-          actionMethod: FormDesignerActionDispatchers.addFormComponent({
+          componentType:  null,
+          actionMethod: () => {FormDesignerActionDispatchers.addFormComponent({
             component: THIRD_PARTY_COMPONENT,
             textResourceBindings,
           },
             null,
-          ) as any,
+          )},
         });
       }
     }
